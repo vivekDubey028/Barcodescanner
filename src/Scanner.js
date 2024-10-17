@@ -19,7 +19,8 @@ const Scanner = () => {
                     },
                 },
                 decoder: {
-                    readers: ['code_128_reader', 'ean_reader', 'ean_8_reader', 'upc_reader', 'upc_e_reader'], // Supported barcode types
+                    readers: ['code_128_reader', 'ean_reader', 'ean_8_reader', 'upc_reader', 'upc_e_reader'],
+                    multiple: false // Supported barcode types
                 },
             }, (err) => {
                 if (err) {
@@ -54,7 +55,7 @@ const Scanner = () => {
 
     const sendToBackend = async (barcode) => {
         try {
-            const response = await axios.post('http://localhost:5000/scan', {
+            const response = await axios.post('https://not.webyourvyavsay.com/scan', {
                 barcode: barcode,
             });
 
